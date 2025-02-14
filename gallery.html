@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .image-grid img {
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,22 +39,27 @@
     </header>
 
     <section class="gallery">
-    <div class="image-grid">
-        <?php
-        $dir = 'uploads';
-        if (is_dir($dir)) {
-            $images = array_diff(scandir($dir), array('.', '..'));
-            foreach ($images as $image) {
-                echo '<img src="' . $dir . '/' . $image . '" alt="Gallery Image" style="width: 200px; height: auto; margin: 10px;">';
+        <div class="image-grid">
+            <?php
+            $dir = 'uploads';
+            if (is_dir($dir)) {
+                $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                $files = array_diff(scandir($dir), array('.', '..'));
+
+                foreach ($files as $file) {
+                    $file_path = $dir . '/' . $file;
+                    $file_extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+                    if (in_array(strtolower($file_extension), $allowed_extensions)) {
+                        echo '<img src="' . $file_path . '" alt="Gallery Image">';
+                    }
+                }
+            } else {
+                echo '<p>No images uploaded yet.</p>';
             }
-        } else {
-            echo '<p>No images uploaded yet.</p>';
-        }
-        ?>
-    </div>
-</section>
-
-
+            ?>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Speedsterclicks Photography</p>
