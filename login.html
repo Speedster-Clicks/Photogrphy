@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
+
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <div class="dropdown">
+                    <span class="menu-btn"></span>      
+                    <div class="dropdown-content">
+                        <li><a href="index.html">🏠 Home</a></li>
+                        <li><a href="gallery.html">🖼️ Gallery</a></li>
+                        <li><a href="about.html">ℹ️ Team</a></li>
+                        <li><a href="contact.html">✉️ Contact</a></li>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-form">
+        <form onsubmit="return login(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <p id="demo"></p>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Photography & Videography Team</p>
+    </footer>
+
+</body>
+</html>

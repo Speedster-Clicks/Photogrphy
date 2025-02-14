@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Team Dashboard</h1>
+        <nav>
+            <ul>
+                <div class="dropdown">
+                    <span class="menu-btn"></span>      
+                    <div class="dropdown-content">
+                        <li><a href="index.html">🏠 Home</a></li>
+                        <li><a href="gallery.php">🖼️ Gallery</a></li>
+                        <li><a href="about.html">ℹ️ Team</a></li>
+                        <li><a href="contact.html">✉️ Contact</a></li>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="upload-form">
+        <h2>Upload an Image</h2>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="images[]" id="fileToUpload" multiple>  <!-- Notice the [] in name -->
+            <input type="submit" value="Upload Images" name="submit">
+        </form>            
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Photography & Videography Team</p>
+    </footer>
+</body>
+</html>
